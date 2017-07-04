@@ -1,26 +1,76 @@
-# shipment
 
-#prepare SWPOR rule file
-#all apps in one file
-App, Type, Platform
+# Shipment
 
-#prepare option code rule file
-#all apps in one file
+This project calculates the monthly shipment data for each CEPS application.
 
-#diff the SWPOR files if they belong to the same cycle
+## Getting Started
 
+This project needs Python 3.6, PyCharm and Sqlite browser
+### Prerequisites
+
+The following inputs files are needed for the calculation.
+
+* Latest version of the SWPOR file for DT and NB
+    
+    * Excel 1 for NB
+    * Excel 2 for DT
+* Shipment raw data of that month
+    
+    * Units_Final_xxxxxx.csv
+
+* Rule files:
+    * 1c17_nb_loc.csv - app-loc mapping
+    * 1c17_nb.csv  - app-platform mapping
+    * 1c17_nb_loc.csv
+    * 1c17_nb.csv
+
+
+
+
+### Installing
+
+A step by step series of examples that tell you have to get a development env running
+
+Say what the step will be
+
+```
+Give the example
+```
+
+
+
+## Deployment
+
+Run main.py to start
+
+
+## Authors
+
+* **Zhuoyi Zhang** - *Initial work* 
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Notes
+
+* diff the SWPOR files if they belong to the same cycle
+
+````
 git diff --word-diff=color --word-diff-regex=. 1c17-nb.csv 1c17-nb-test.csv
+````
+
+* March data misses lots of location code, the numbers would not be correct.
 
 
-#run load_swpor.py
-1c17-nb-loc.csv and 1c17-dt.csv are mandatory
-note that loc files are different between nb and dt platform
+## To Do
 
 
+* In Install table, we may want to replace type (new, refresh) column with cycle column
 
+* Add 2c17 rule files
 
+* Add OMEN
 
-July 3rd
-#march data misses lots of location code.
-
-install table,  new and refresh,   should I change them to cycle?
+* Test numbers in old files
