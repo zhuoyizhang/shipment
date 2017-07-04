@@ -67,10 +67,18 @@ git diff --word-diff=color --word-diff-regex=. 1c17-nb.csv 1c17-nb-test.csv
 ## To Do
 
 
-* In Install table, we may want to replace type (new, refresh) column with cycle column
+~~* In Install table, we may want to replace type (new, refresh) column with cycle column~~
 
 * Add 2c17 rule files
 
 * Add OMEN
 
 * Test numbers in old files
+
+## Assumption
+
+* Use the latest version of SWPOR of a cycle
+* Combine the the SWPOR of all cycles, 3c16, 1c17, 2c17 etc.
+* Refresh = 1 cycle down
+* Softroll does not change cycle
+

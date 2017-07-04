@@ -1,63 +1,63 @@
-﻿App,Type,Platform
-HP Orbit,new,RAZR2 1.0 (HP) / Intel
-HP Orbit,new,Shave3 1.0 (HP Pavilion) / Intel / AMD
-HP Orbit,refresh,Tesla 1.1 (HP Pavilion) / Intel
-HP Orbit,refresh,HAL2 1.1 (HP Pavilion) / Intel
-HP Orbit,refresh,ARIIA+ 1.1 (HP Envy) / Intel
-HP Orbit,refresh,ARIIA+ 1.1 (HP Envy) / Intel / VR
-HP Orbit,refresh,Typhon 1.1 (HP OMEN) / Intel
-HP Orbit,refresh,Typhon 1.1 (HP OMEN) / Intel / VR
-HP Orbit,refresh,Twister 1.2 (HP OMEN) / Intel
-HP Orbit,refresh,Twister 1.2 (HP OMEN) / Intel / VR
-HP Orbit,new,FangioDG238 1.0 (HP ProOne G3 24) / Intel
-HP Orbit,new,Schumi34 1.0 (HP Envy) / Intel
-HP Orbit,refresh,Prost195 1.2 (HP 20) / AMD / Intel
-HP Orbit,refresh,Prost215 1.2 (HP 22) / AMD / Intel
-HP Orbit,refresh,Prost238 1.2 (HP 24) / AMD / Intel
-HP Orbit,refresh,Fangio238 1.2 (HP Pavilion 24) / AMD / Intel
-HP Orbit,refresh,FangioX238 1.2 (HP Pavilion 24) / Intel
-HP Orbit,refresh,Fangio27 1.2 (HP Pavilion 27) / Intel
-HP Orbit,refresh,Schumi27 1.1 (HP ENVY) / Intel
-HP JumpStart,new,RAZR2 1.0 (HP) / Intel
-HP JumpStart,new,Shave3 1.0 (HP Pavilion) / Intel / AMD
-HP JumpStart,refresh,Tesla 1.1 (HP Pavilion) / Intel
-HP JumpStart,refresh,HAL2 1.1 (HP Pavilion) / Intel
-HP JumpStart,refresh,ARIIA+ 1.1 (HP Envy) / Intel
-HP JumpStart,refresh,ARIIA+ 1.1 (HP Envy) / Intel / VR
-HP JumpStart,refresh,Typhon 1.1 (HP OMEN) / Intel
-HP JumpStart,refresh,Typhon 1.1 (HP OMEN) / Intel / VR
-HP JumpStart,refresh,Twister 1.2 (HP OMEN) / Intel
-HP JumpStart,refresh,Twister 1.2 (HP OMEN) / Intel / VR
-HP JumpStart,new,FangioDG238 1.0 (HP ProOne G3 24) / Intel
-HP JumpStart,new,Schumi34 1.0 (HP Envy) / Intel
-HP JumpStart,refresh,Prost195 1.2 (HP 20) / AMD / Intel
-HP JumpStart,refresh,Prost215 1.2 (HP 22) / AMD / Intel
-HP JumpStart,refresh,Prost238 1.2 (HP 24) / AMD / Intel
-HP JumpStart,refresh,Fangio238 1.2 (HP Pavilion 24) / AMD / Intel
-HP JumpStart,refresh,FangioX238 1.2 (HP Pavilion 24) / Intel
-HP JumpStart,refresh,Fangio27 1.2 (HP Pavilion 27) / Intel
-HP JumpStart,refresh,Schumi27 1.1 (HP ENVY) / Intel
-HP Audio Switch,new,RAZR2 1.0 (HP) / Intel
-HP Audio Switch,new,Shave3 1.0 (HP Pavilion) / Intel / AMD
-HP Audio Switch,refresh,Tesla 1.1 (HP Pavilion) / Intel
-HP Audio Switch,refresh,HAL2 1.1 (HP Pavilion) / Intel
-HP Audio Switch,refresh,ARIIA+ 1.1 (HP Envy) / Intel
-HP Audio Switch,refresh,ARIIA+ 1.1 (HP Envy) / Intel / VR
-HP Audio Switch,refresh,Typhon 1.1 (HP OMEN) / Intel
-HP Audio Switch,refresh,Typhon 1.1 (HP OMEN) / Intel / VR
-HP Audio Switch,refresh,Twister 1.2 (HP OMEN) / Intel
-HP Audio Switch,refresh,Twister 1.2 (HP OMEN) / Intel / VR
-HP Audio Switch,new,FangioDG238 1.0 (HP ProOne G3 24) / Intel
-HP Audio Switch,new,Schumi 34 1.0 (HP Envy) / Intel
-HP Audio Switch,refresh,Prost195 1.2 (HP 20) / AMD / Intel
-HP Audio Switch,refresh,Prost215 1.2 (HP 22) / AMD / Intel
-HP Audio Switch,refresh,Prost238 1.2 (HP 24) / AMD / Intel
-HP Audio Switch,refresh,Fangio238 1.2 (HP Pavilion 24) / AMD / Intel
-HP Audio Switch,refresh,FangioX238 1.2 (HP Pavilion 24) / Intel
-HP Audio Switch,refresh,Fangio27 1.2 (HP Pavilion 27) / Intel
-HP Audio Switch,refresh,Schumi27 1.1 (HP ENVY) / Intel
-HP JumpStart Apps,new,RAZR2 1.0 (HP) / Intel
-HP JumpStart Apps,new,Shave3 1.0 (HP Pavilion) / Intel / AMD
-HP JumpStart Apps,refresh,Prost195 1.2 (HP 20) / AMD / Intel
-HP JumpStart Apps,refresh,Prost215 1.2 (HP 22) / AMD / Intel
-HP JumpStart Apps,refresh,Prost238 1.2 (HP 24) / AMD / Intel
+﻿App,Cycle,Platform
+HP Orbit,1c17,RAZR2 1.0 (HP) / Intel
+HP Orbit,1c17,Shave3 1.0 (HP Pavilion) / Intel / AMD
+HP Orbit,3c16,Tesla 1.1 (HP Pavilion) / Intel
+HP Orbit,3c16,HAL2 1.1 (HP Pavilion) / Intel
+HP Orbit,3c16,ARIIA+ 1.1 (HP Envy) / Intel
+HP Orbit,3c16,ARIIA+ 1.1 (HP Envy) / Intel / VR
+HP Orbit,3c16,Typhon 1.1 (HP OMEN) / Intel
+HP Orbit,3c16,Typhon 1.1 (HP OMEN) / Intel / VR
+HP Orbit,3c16,Twister 1.2 (HP OMEN) / Intel
+HP Orbit,3c16,Twister 1.2 (HP OMEN) / Intel / VR
+HP Orbit,1c17,FangioDG238 1.0 (HP ProOne G3 24) / Intel
+HP Orbit,1c17,Schumi34 1.0 (HP Envy) / Intel
+HP Orbit,3c16,Prost195 1.2 (HP 20) / AMD / Intel
+HP Orbit,3c16,Prost215 1.2 (HP 22) / AMD / Intel
+HP Orbit,3c16,Prost238 1.2 (HP 24) / AMD / Intel
+HP Orbit,3c16,Fangio238 1.2 (HP Pavilion 24) / AMD / Intel
+HP Orbit,3c16,FangioX238 1.2 (HP Pavilion 24) / Intel
+HP Orbit,3c16,Fangio27 1.2 (HP Pavilion 27) / Intel
+HP Orbit,3c16,Schumi27 1.1 (HP ENVY) / Intel
+HP JumpStart,1c17,RAZR2 1.0 (HP) / Intel
+HP JumpStart,1c17,Shave3 1.0 (HP Pavilion) / Intel / AMD
+HP JumpStart,3c16,Tesla 1.1 (HP Pavilion) / Intel
+HP JumpStart,3c16,HAL2 1.1 (HP Pavilion) / Intel
+HP JumpStart,3c16,ARIIA+ 1.1 (HP Envy) / Intel
+HP JumpStart,3c16,ARIIA+ 1.1 (HP Envy) / Intel / VR
+HP JumpStart,3c16,Typhon 1.1 (HP OMEN) / Intel
+HP JumpStart,3c16,Typhon 1.1 (HP OMEN) / Intel / VR
+HP JumpStart,3c16,Twister 1.2 (HP OMEN) / Intel
+HP JumpStart,3c16,Twister 1.2 (HP OMEN) / Intel / VR
+HP JumpStart,1c17,FangioDG238 1.0 (HP ProOne G3 24) / Intel
+HP JumpStart,1c17,Schumi34 1.0 (HP Envy) / Intel
+HP JumpStart,3c16,Prost195 1.2 (HP 20) / AMD / Intel
+HP JumpStart,3c16,Prost215 1.2 (HP 22) / AMD / Intel
+HP JumpStart,3c16,Prost238 1.2 (HP 24) / AMD / Intel
+HP JumpStart,3c16,Fangio238 1.2 (HP Pavilion 24) / AMD / Intel
+HP JumpStart,3c16,FangioX238 1.2 (HP Pavilion 24) / Intel
+HP JumpStart,3c16,Fangio27 1.2 (HP Pavilion 27) / Intel
+HP JumpStart,3c16,Schumi27 1.1 (HP ENVY) / Intel
+HP Audio Switch,1c17,RAZR2 1.0 (HP) / Intel
+HP Audio Switch,1c17,Shave3 1.0 (HP Pavilion) / Intel / AMD
+HP Audio Switch,3c16,Tesla 1.1 (HP Pavilion) / Intel
+HP Audio Switch,3c16,HAL2 1.1 (HP Pavilion) / Intel
+HP Audio Switch,3c16,ARIIA+ 1.1 (HP Envy) / Intel
+HP Audio Switch,3c16,ARIIA+ 1.1 (HP Envy) / Intel / VR
+HP Audio Switch,3c16,Typhon 1.1 (HP OMEN) / Intel
+HP Audio Switch,3c16,Typhon 1.1 (HP OMEN) / Intel / VR
+HP Audio Switch,3c16,Twister 1.2 (HP OMEN) / Intel
+HP Audio Switch,3c16,Twister 1.2 (HP OMEN) / Intel / VR
+HP Audio Switch,1c17,FangioDG238 1.0 (HP ProOne G3 24) / Intel
+HP Audio Switch,1c17,Schumi 34 1.0 (HP Envy) / Intel
+HP Audio Switch,3c16,Prost195 1.2 (HP 20) / AMD / Intel
+HP Audio Switch,3c16,Prost215 1.2 (HP 22) / AMD / Intel
+HP Audio Switch,3c16,Prost238 1.2 (HP 24) / AMD / Intel
+HP Audio Switch,3c16,Fangio238 1.2 (HP Pavilion 24) / AMD / Intel
+HP Audio Switch,3c16,FangioX238 1.2 (HP Pavilion 24) / Intel
+HP Audio Switch,3c16,Fangio27 1.2 (HP Pavilion 27) / Intel
+HP Audio Switch,3c16,Schumi27 1.1 (HP ENVY) / Intel
+HP JumpStart Apps,1c17,RAZR2 1.0 (HP) / Intel
+HP JumpStart Apps,1c17,Shave3 1.0 (HP Pavilion) / Intel / AMD
+HP JumpStart Apps,3c16,Prost195 1.2 (HP 20) / AMD / Intel
+HP JumpStart Apps,3c16,Prost215 1.2 (HP 22) / AMD / Intel
+HP JumpStart Apps,3c16,Prost238 1.2 (HP 24) / AMD / Intel

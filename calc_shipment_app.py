@@ -24,7 +24,7 @@ def calc_shipment_app(app_name):
 		and i.loc_id = s.prod_opt_cd
 		and a.id = i.app_id
 		and a.name=?
-		and i.type='new'  
+		and i.cycle='1c17'  
 		and i.platform_type='dt'
        and s.cycle='1C 17'
 	   and s.fisc_yr=2017
@@ -44,7 +44,7 @@ def calc_shipment_app(app_name):
     		and i.loc_id = s.prod_opt_cd
     		and a.id = i.app_id
     		and a.name=?
-    		and i.type='new'  
+		    and i.cycle='1c17'  
     		and i.platform_type='nb'
            and s.cycle='1C 17'
     	   and s.fisc_yr=2017
@@ -64,7 +64,7 @@ def calc_shipment_app(app_name):
 		and i.loc_id = s.prod_opt_cd
 		and a.id = i.app_id
 		and a.name=?
-		and i.type='refresh'  
+		and i.cycle='2c16'  
 		and i.platform_type='dt'
        and s.cycle='2C 16'
 	   and s.fisc_yr=2017
@@ -72,6 +72,8 @@ def calc_shipment_app(app_name):
     
     """),(app_name,))
     dt2c16 = cur.fetchone()[0]
+    if dt2c16 is None: dt2c16=0
+
     print('dt2c16:', dt2c16)
 
     # 2c16, NB, DT
@@ -84,7 +86,7 @@ def calc_shipment_app(app_name):
     		and i.loc_id = s.prod_opt_cd
     		and a.id = i.app_id
     		and a.name=?
-    		and i.type='refresh'  
+		    and i.cycle='2c16'  
     		and i.platform_type='nb'
            and s.cycle='2C 16'
     	   and s.fisc_yr=2017
@@ -92,6 +94,8 @@ def calc_shipment_app(app_name):
 
         """),(app_name,))
     nb2c16 = cur.fetchone()[0]
+    if nb2c16 is None: nb2c16=0
+
     print('nb2c16:', nb2c16)
 
     #3c16, NB, DT
@@ -105,7 +109,7 @@ def calc_shipment_app(app_name):
     		and i.loc_id = s.prod_opt_cd
     		and a.id = i.app_id
     		and a.name=?
-    		and i.type='refresh'  
+		    and i.cycle='3c16'  
     		and i.platform_type='dt'
            and s.cycle='3C 16'
     	   and s.fisc_yr=2017
@@ -126,7 +130,7 @@ def calc_shipment_app(app_name):
       		and i.loc_id = s.prod_opt_cd
       		and a.id = i.app_id
       		and a.name=?
-      		and i.type in ('refresh','')  
+		    and i.cycle='3c16'  
       		and i.platform_type='nb'
              and s.cycle ='3C 16'
       	   and s.fisc_yr=2017
@@ -149,7 +153,7 @@ def calc_shipment_app(app_name):
       		and i.loc_id = s.prod_opt_cd
       		and a.id = i.app_id
       		and a.name=?
-      		and i.type='refresh'  
+		    and i.cycle='3c15'  
       		and i.platform_type='dt'
              and s.cycle='3C 15'
       	   and s.fisc_yr=2017
@@ -174,7 +178,7 @@ def calc_shipment_app(app_name):
        		and i.loc_id = s.prod_opt_cd
        		and a.id = i.app_id
        		and a.name=?
-       		and i.type='refresh'  
+		    and i.cycle='3c15'  
        		and i.platform_type='nb'
               and s.cycle='3C 15'
        	   and s.fisc_yr=2017

@@ -74,20 +74,19 @@ def load_swpor(loc_file_name,type2load,file_name):
             #print(row[2].split())
             platform = row[2].split()[0]
             version = row[2].split()[1]
-            type = row[1]
+            cycle = row[1]
             category = re.search(r'\(.*\)',row[2]).group(0)[1:-1]
             #print(platform, version, category)
             cur.execute('''INSERT OR IGNORE INTO Platforms (platform, version, category)
                     VALUES ( ?, ?, ?)''', ( platform, version, category) )
             #insert into install table
-            #loop by app
-
+            #loop by app and loc code
 
             result = cur.execute('select app_id, option_cd from OptionCodes')
             data = result.fetchall()
             for item in data:
-                cur.execute('''INSERT OR IGNORE INTO Install (app_id, loc_id, platform, version, type, platform_type)
-                                VALUES ( ?, ?,?,?,?,?)''', (item[0], item[1],platform, version, type, type2load))
+                cur.execute('''INSERT OR IGNORE INTO Install (app_id, loc_id, platform, version, platform_type,cycle)
+                                VALUES ( ?, ?,?,?,?,?)''', (item[0], item[1],platform, version, type2load,cycle))
 
     cur.close()
 

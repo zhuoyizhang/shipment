@@ -46,7 +46,6 @@ def create_tables():
    );
 
    CREATE TABLE IF NOT EXISTS Install (
-       type TEXT,
        app_id INTEGER,
        loc_id INTEGER,
        platform   TEXT,
