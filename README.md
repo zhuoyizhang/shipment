@@ -18,23 +18,37 @@ The following inputs files are needed for the calculation.
     
     * Units_Final_xxxxxx.csv
 
-~~* Rule files:
-    * 1c17_nb_loc.csv - app-loc mapping
-    * 1c17_nb.csv  - app-platform mapping
-    * 1c17_nb_loc.csv
-    * 1c17_nb.csv~~
+* Configure swpor.conf
 
 
 
 
-### Installing
+### swpor.conf
 
-A step by step series of examples that tell you have to get a development env running
 
-Say what the step will be
 
 ```
-Give the example
+[1c17]
+shipment=Units_Final_2017_04_06_raw.csv
+apps=HP Orbit,HP JumpStart,HP JumpStart Apps,HP Audio Switch
+
+
+[1c17.dt]
+
+filename ='1c17 cDT_SWPOR_Matrix_2017_02_06.xlsx'
+
+#platform
+startCol=O
+endCol=AK
+exclude=Q,T,AE
+cyclerow=2
+platformrow=3
+
+#option code
+startCol_loc=AM
+endCol_loc=CN
+exclude_loc=
+optioncode_row=7
 ```
 
 
@@ -65,11 +79,11 @@ git diff --word-diff=color --word-diff-regex=. 1c17-nb.csv 1c17-nb-test.csv
 
 ## To Do
 
-* load 3c16, 1c17, 2c17 together
-
+* Load 3c16, 1c17, 2c17 together
 * Add OMEN
-
 * Test numbers in old files
+
+~~* Fix getCycle()~~
 
 ## Assumption
 

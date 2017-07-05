@@ -54,14 +54,18 @@ print('main starts')
 
 create_tables.create_tables()
 
-#prepare 4 rule files
-config = util.loadConfig('swpor.conf')
-for cycle in config.sections():
-    if cycle in ['1c17','2c17','3c16']: continue
-    gen_swpor.gen_swpor(config[cycle],config)
-
-
 cycle2load='1c17'
+
+#only pick the selected sections by cycle and their child sections.
+config = util.loadConfig('swpor.conf')
+subtree= util.getConfigTree(cycle2load,config)
+children = util.getConfigChildren(subtree)
+parent = util.getConfigParent(subtree)
+
+for child in children:
+    gen_swpor.gen_swpor(children[child],parent)
+
+
 
 
 #nb

@@ -32,6 +32,8 @@ def calc_shipment_app(app_name):
            
     """),(app_name,))
     dt1c17 = cur.fetchone()[0]
+    if dt1c17 is None: dt1c17=0
+
     print('dt1c17:',dt1c17)
 
     ##1c17, nb
@@ -52,6 +54,8 @@ def calc_shipment_app(app_name):
 
         """),(app_name,))
     nb1c17 = cur.fetchone()[0]
+    if nb1c17 is None: nb1c17=0
+
     print('nb1c17:', nb1c17)
 
     #2c16, NB, DT
@@ -117,6 +121,8 @@ def calc_shipment_app(app_name):
 
     """),(app_name,))
     dt3c16 = cur.fetchone()[0]
+    if dt3c16 is None: dt3c16=0
+
     print('dt3c16:', dt3c16)
 
     # 3c16, NB, DT
@@ -138,6 +144,8 @@ def calc_shipment_app(app_name):
 
       """),(app_name,))
     nb3c16 = cur.fetchone()[0]
+    if nb3c16 is None: nb3c16=0
+
     print('nb3c16:', nb3c16)
 
     #3c15, NB, DT

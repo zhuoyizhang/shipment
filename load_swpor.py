@@ -32,7 +32,7 @@ def load_swpor(loc_file_name,type2load,file_name):
     with open(loc_file_name, newline='') as loc_file:
         reader = csv.reader(loc_file, delimiter=',')
         first_line = loc_file.readline()
-        print(first_line)
+        #print(first_line)
         newappname = None
         for row in reader:
             option_code = row[1]

@@ -12,8 +12,10 @@ import util
 
 
 
-def gen_swpor(config1,parentConfig1):
-    config = util.getConfigChild(config1)
+def gen_swpor(childConfig,configParent):
+
+    config = util.getConfigChild(childConfig)
+
     inputfile = config['filename']
     #path =os.path.basename(os.getcwd())
 
@@ -26,7 +28,7 @@ def gen_swpor(config1,parentConfig1):
     lst = inputfile.split()
     csvname = lst[0] + '_' + lst[1].split('_')[0][1:].lower() + '.csv'
     csvname_loc = lst[0] + '_' + lst[1].split('_')[0][1:].lower() + '_loc.csv'
-    configParent = util.getConfigParent(parentConfig1[lst[0]])
+    #configParent = util.getConfigParent(parentConfig1[lst[0]])
 
     print(csvname)
 
@@ -120,7 +122,7 @@ def gen_swpor(config1,parentConfig1):
                     dict1[coordinate_from_string(cellObj.coordinate)[0]] = cellObj.value
                 else:
                     dict1[coordinate_from_string(cellObj.coordinate)[0]] = lastValue
-                print(cellObj.coordinate, cellObj.value, '|', dict1[coordinate_from_string(cellObj.coordinate)[0]])
+                #print(cellObj.coordinate, cellObj.value, '|', dict1[coordinate_from_string(cellObj.coordinate)[0]])
             #print('--- END OF ROW ---')
         return dict1
 
@@ -128,17 +130,7 @@ def gen_swpor(config1,parentConfig1):
 
 
 
-    def getCycle(coordinate):
-        xy = coordinate_from_string(coordinate)
-        col=xy[0]
-        cycle = ''
-        if dictCycle[col].upper() == 'New'.upper():
-            cycle = '1c17'
-        elif dictCycle[col].upper() == 'Refresh'.upper():
-            cycle = '3c16'
-        elif dictCycle[col].upper() == '3C16 softroll'.upper():
-            cycle = '3c16'
-        return cycle
+
 
 
 
@@ -160,7 +152,7 @@ def gen_swpor(config1,parentConfig1):
                 else: continue
                 #print(platform)
                 # platform = getPlatform()
-                cycle = getCycle(item[0])
+                cycle = util.getCycle(item[0],dictCycle,config)
 
                 writer.writerow([appname,cycle,platform])
 
@@ -173,7 +165,7 @@ def gen_swpor(config1,parentConfig1):
         for rowOfCellObjects in sheet[coords[0]:coords[1]]:
             for cellObj in rowOfCellObjects:
                 dict1[coordinate_from_string(cellObj.coordinate)[0]] = cellObj.value
-                print(cellObj.coordinate, cellObj.value)
+                #print(cellObj.coordinate, cellObj.value)
             #print('--- END OF ROW ---')
         return dict1
 
