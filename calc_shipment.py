@@ -3,10 +3,13 @@
 import urllib.request, urllib.parse, urllib.error
 import csv
 import sqlite3
-
-def calc_shipment():
+import util
+def calc_shipment(config1):
     print('calc_shipment starts')
+    #config=util.getConfig(config1)
 
+
+    shipmentfile = config1.get('shipment')
 
     ## read csv raw file
 
@@ -33,7 +36,7 @@ def calc_shipment():
 
     exp = ['STOLI','MAYA','KOWALSKI','ZONDA','PASHA','SANGRIA','KAILI','NOKA','CINDERELLA','PUCCINI','PAVLOVA','PANINI','BABA','GODIVA','VALRHONA','PAVLOVA','VANILLA','GUMMI','PITA','DASANI','JOSHUA','FAJITA']
 
-    with open('Units_Final_2017_04_06_raw.csv', newline='') as rawfile:
+    with open(shipmentfile, newline='') as rawfile:
         reader = csv.reader(rawfile, delimiter=',')
         rawfile.readline()
         for row in reader:

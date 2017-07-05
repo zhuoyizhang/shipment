@@ -8,12 +8,13 @@ import re
 
 
 
+
+
 def load_swpor(loc_file_name,type2load,file_name):
     print('load_swpor starts')
     print(loc_file_name,type2load,file_name)
 
     #input file xxxx_xx.csv and xxxx_xx.loc.csv
-    #naming convention     1c17_nb.csv and 2c17-dt-loc.csv
 
 
 
@@ -24,12 +25,10 @@ def load_swpor(loc_file_name,type2load,file_name):
     cur = conn.cursor()
 
     #read csv file into option code table
-    #open 1c17_nb_loc.csv
     #load file into dict of lists
     #'orbit' [aba,uum, ...]
     #load dataframe into table
 
-    #load 1c17_nb_loc.csv
     with open(loc_file_name, newline='') as loc_file:
         reader = csv.reader(loc_file, delimiter=',')
         first_line = loc_file.readline()

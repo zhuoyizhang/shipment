@@ -6,14 +6,15 @@ import pandas as pd
 import csv
 import os
 
-
 import openpyxl
 from openpyxl.utils import coordinate_from_string, column_index_from_string
+import util
 
 
-def gen_swpor(inputfile,config):
 
-
+def gen_swpor(config1,parentConfig1):
+    config = util.getConfigChild(config1)
+    inputfile = config['filename']
     #path =os.path.basename(os.getcwd())
 
     #read xlsx and write to csv
@@ -25,9 +26,11 @@ def gen_swpor(inputfile,config):
     lst = inputfile.split()
     csvname = lst[0] + '_' + lst[1].split('_')[0][1:].lower() + '.csv'
     csvname_loc = lst[0] + '_' + lst[1].split('_')[0][1:].lower() + '_loc.csv'
+    configParent = util.getConfigParent(parentConfig1[lst[0]])
 
     print(csvname)
 
+    apps=configParent['apps']
     startCol = config['startCol']
     endCol = config['endCol']
     exclude=config['exclude']
@@ -68,8 +71,7 @@ def gen_swpor(inputfile,config):
 
     # form App metadata
     def formAppMetadata(col1, col2, row1, row2):
-        apps = config['apps']
-        #apps = ['HP Orbit', 'HP JumpStart', 'HP JumpStart Apps', 'HP Audio Switch']
+        #apps = config['apps']
         coords = getCoords(col1,col2,row1,row2)
         appdict = dict()
 
