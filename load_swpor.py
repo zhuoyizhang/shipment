@@ -29,37 +29,28 @@ def load_swpor(loc_file_name,type2load,file_name):
     #'orbit' [aba,uum, ...]
     #load dataframe into table
 
+    #load 1c17_nb_loc.csv
     with open(loc_file_name, newline='') as loc_file:
         reader = csv.reader(loc_file, delimiter=',')
         first_line = loc_file.readline()
         print(first_line)
-
-        #each column is an app
-        #key=col_index, value=app_id
-        dict_app_id = dict()
-        col_index=1
-        for name in first_line.split(',')[1:]:
-            cur.execute('''INSERT OR IGNORE INTO Apps (name)
-                VALUES ( ? )''', (name,))
-            cur.execute('SELECT id FROM Apps WHERE name = ? ', (name,))
-            dict_app_id[col_index]=cur.fetchone()[0]
-            col_index = col_index + 1
-
-        # Option Code, HP Orbit, HP JumpStart, HP JumpStart Apps, HP Audio Switch
-        # ABA, n, n, n, n
-        # B1F, n, n,, n
-
-        # id, app_id, option_cd, type
+        newappname = None
         for row in reader:
-            option_code = row[0]
+            option_code = row[1]
+            appname = row[0]
+            if newappname is None or newappname !=appname:
+                newappname=appname
+                cur.execute('''INSERT OR IGNORE INTO Apps (name)
+                                                VALUES ( ? )''', (appname,))
+            cur.execute('SELECT id FROM Apps WHERE name = ? ', (appname,))
+            appid = cur.fetchone()[0]
+
             type = type2load
             #dict.items() return tuple, tuple does not have key, use[i]
             #item(col_index, app_id)
-            for item in dict_app_id.items():
-                #print(row)
-                if len(row[item[0]])<1: continue
-                cur.execute('''INSERT OR IGNORE INTO OptionCodes (app_id, option_cd, type)
-                     VALUES ( ? ,?,?)''', ( item[1], option_code, type) )
+
+            cur.execute('''INSERT OR IGNORE INTO OptionCodes (app_id, option_cd, type)
+                     VALUES ( ? ,?,?)''', ( appid, option_code, type) )
 
 
     #load 1c17_nb_csv
@@ -82,10 +73,10 @@ def load_swpor(loc_file_name,type2load,file_name):
             #insert into install table
             #loop by app and loc code
 
-            result = cur.execute('select app_id, option_cd from OptionCodes')
+            result = cur.execute('select app_id, option_cd from OptionCodes where type=?',(type2load,))
             data = result.fetchall()
             for item in data:
-                cur.execute('''INSERT OR IGNORE INTO Install (app_id, loc_id, platform, version, platform_type,cycle)
+                cur.execute('''INSERT OR IGNORE INTO Install (app_id, option_cd, platform, version, platform_type,cycle)
                                 VALUES ( ?, ?,?,?,?,?)''', (item[0], item[1],platform, version, type2load,cycle))
 
     cur.close()

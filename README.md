@@ -13,16 +13,16 @@ The following inputs files are needed for the calculation.
 * Latest version of the SWPOR file for DT and NB
     
     * Excel 1 for NB
-    * Excel 2 for DT
+    * Excel 2 for DT, 1c17 cDT_SWPOR_Matrix_2017_02_06.xlsx
 * Shipment raw data of that month
     
     * Units_Final_xxxxxx.csv
 
-* Rule files:
+~~* Rule files:
     * 1c17_nb_loc.csv - app-loc mapping
     * 1c17_nb.csv  - app-platform mapping
     * 1c17_nb_loc.csv
-    * 1c17_nb.csv
+    * 1c17_nb.csv~~
 
 
 
@@ -61,7 +61,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 git diff --word-diff=color --word-diff-regex=. 1c17-nb.csv 1c17-nb-test.csv
 ````
 
-* March data misses lots of location code, the numbers would not be correct.
 
 
 ## To Do
@@ -81,4 +80,27 @@ git diff --word-diff=color --word-diff-regex=. 1c17-nb.csv 1c17-nb-test.csv
 * Combine the the SWPOR of all cycles, 3c16, 1c17, 2c17 etc.
 * Refresh = 1 cycle down
 * Softroll does not change cycle
+
+
+## Known Issues
+
+* March shipment units miss lots of location_code.  The query has to be modified for this exception
+
+```
+    select sum(qty)
+        FROM shipment s, install i, apps a
+        WHERE s.PRFT_CTR_LVL_5_NM not in ('China Local Sales','Germany Sales','Korea Local Sales')
+        AND s.OPERATING_SYSTEM LIKE ('%10%')
+		AND upper(s.platform) = upper(i.platform)
+		--and i.location_cd = s.prod_opt_cd
+		and a.id = i.app_id
+		and a.name='HP JumpStart'
+		and i.cycle='3c16'  
+		and i.platform_type='dt'
+        and s.cycle='3C 16'
+	    and s.fisc_yr=2017
+	    and s.fisc_mth = 5
+
+```
+
 

@@ -38,24 +38,24 @@ def create_tables():
    );
 
    CREATE TABLE IF NOT EXISTS OptionCodes (
-       id     INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
        app_id INTEGER,
        option_cd  TEXT,
        type    TEXT,
+       PRIMARY KEY (app_id, option_cd,type),
        FOREIGN KEY(app_id) REFERENCES Apps(id)
    );
 
    CREATE TABLE IF NOT EXISTS Install (
        app_id INTEGER,
-       loc_id INTEGER,
+       option_cd TEXT,
        platform   TEXT,
        version   TEXT,
        platform_type   TEXT,
        cycle TEXT,
        FOREIGN KEY(app_id) REFERENCES Apps(id),
-       FOREIGN KEY(loc_id) REFERENCES OptionCodes(id),
+       FOREIGN KEY(option_cd) REFERENCES OptionCodes(option_cd),
        FOREIGN KEY(platform, version) REFERENCES Platforms(platform, version),
-       PRIMARY KEY(app_id,platform,loc_id)
+       PRIMARY KEY(app_id,platform,option_cd)
    );
 
    CREATE TABLE IF NOT EXISTS Shipment (

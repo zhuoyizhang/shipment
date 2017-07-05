@@ -21,7 +21,7 @@ def calc_shipment_app(app_name):
         WHERE s.PRFT_CTR_LVL_5_NM not in ('China Local Sales','Germany Sales','Korea Local Sales')
         AND s.OPERATING_SYSTEM LIKE ('%10%')
 		AND upper(s.platform) = upper(i.platform)
-		and i.loc_id = s.prod_opt_cd
+		and i.option_cd = s.prod_opt_cd
 		and a.id = i.app_id
 		and a.name=?
 		and i.cycle='1c17'  
@@ -41,7 +41,7 @@ def calc_shipment_app(app_name):
             WHERE s.PRFT_CTR_LVL_5_NM not in ('China Local Sales','Germany Sales','Korea Local Sales')
             AND s.OPERATING_SYSTEM LIKE ('%10%')
     		AND upper(s.platform) = upper(i.platform)
-    		and i.loc_id = s.prod_opt_cd
+    		and i.option_cd = s.prod_opt_cd
     		and a.id = i.app_id
     		and a.name=?
 		    and i.cycle='1c17'  
@@ -61,7 +61,7 @@ def calc_shipment_app(app_name):
         WHERE s.PRFT_CTR_LVL_5_NM not in ('China Local Sales','Germany Sales','Korea Local Sales')
         AND s.OPERATING_SYSTEM LIKE ('%10%')
 		AND upper(s.platform) = upper(i.platform)
-		and i.loc_id = s.prod_opt_cd
+		and i.option_cd = s.prod_opt_cd
 		and a.id = i.app_id
 		and a.name=?
 		and i.cycle='2c16'  
@@ -83,7 +83,7 @@ def calc_shipment_app(app_name):
             WHERE s.PRFT_CTR_LVL_5_NM not in ('China Local Sales','Germany Sales','Korea Local Sales')
             AND s.OPERATING_SYSTEM LIKE ('%10%')
     		AND upper(s.platform) = upper(i.platform)
-    		and i.loc_id = s.prod_opt_cd
+    		and i.option_cd = s.prod_opt_cd
     		and a.id = i.app_id
     		and a.name=?
 		    and i.cycle='2c16'  
@@ -106,7 +106,7 @@ def calc_shipment_app(app_name):
             WHERE s.PRFT_CTR_LVL_5_NM not in ('China Local Sales','Germany Sales','Korea Local Sales')
             AND s.OPERATING_SYSTEM LIKE ('%10%')
     		AND upper(s.platform) = upper(i.platform)
-    		and i.loc_id = s.prod_opt_cd
+    		and i.option_cd = s.prod_opt_cd
     		and a.id = i.app_id
     		and a.name=?
 		    and i.cycle='3c16'  
@@ -127,7 +127,7 @@ def calc_shipment_app(app_name):
               WHERE s.PRFT_CTR_LVL_5_NM not in ('China Local Sales','Germany Sales','Korea Local Sales')
               AND s.OPERATING_SYSTEM LIKE ('%10%')
       		AND upper(s.platform) = upper(i.platform)
-      		and i.loc_id = s.prod_opt_cd
+      		and i.option_cd = s.prod_opt_cd
       		and a.id = i.app_id
       		and a.name=?
 		    and i.cycle='3c16'  
@@ -150,7 +150,7 @@ def calc_shipment_app(app_name):
               WHERE s.PRFT_CTR_LVL_5_NM not in ('China Local Sales','Germany Sales','Korea Local Sales')
               AND s.OPERATING_SYSTEM LIKE ('%10%')
       		AND upper(s.platform) = upper(i.platform)
-      		and i.loc_id = s.prod_opt_cd
+      		and i.option_cd = s.prod_opt_cd
       		and a.id = i.app_id
       		and a.name=?
 		    and i.cycle='3c15'  
@@ -175,7 +175,7 @@ def calc_shipment_app(app_name):
                WHERE s.PRFT_CTR_LVL_5_NM not in ('China Local Sales','Germany Sales','Korea Local Sales')
                AND s.OPERATING_SYSTEM LIKE ('%10%')
        		AND upper(s.platform) = upper(i.platform)
-       		and i.loc_id = s.prod_opt_cd
+       		and i.option_cd = s.prod_opt_cd
        		and a.id = i.app_id
        		and a.name=?
 		    and i.cycle='3c15'  
