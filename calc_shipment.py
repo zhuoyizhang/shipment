@@ -9,7 +9,7 @@ def calc_shipment(config1):
     #config=util.getConfig(config1)
 
 
-    shipmentfile = config1.get('shipment')
+    shipmentfile = r'./units/' + config1.get('shipment')
 
     ## read csv raw file
 
@@ -33,8 +33,11 @@ def calc_shipment(config1):
     )
     ''')
 
-
-    exp = ['STOLI','MAYA','KOWALSKI','ZONDA','PASHA','SANGRIA','KAILI','NOKA','CINDERELLA','PUCCINI','PAVLOVA','PANINI','BABA','GODIVA','VALRHONA','PAVLOVA','VANILLA','GUMMI','PITA','DASANI','JOSHUA','FAJITA']
+    #ending with A or I
+    exp = ['STOLI','MAYA','KOWALSKI','ZONDA','PASHA','SANGRIA',
+           'KAILI','NOKA','CINDERELLA','PUCCINI','PAVLOVA','PANINI',
+           'BABA','GODIVA','VALRHONA','PAVLOVA','VANILLA',
+           'GUMMI','PITA','DASANI','JOSHUA','FAJITA']
 
     with open(shipmentfile, newline='') as rawfile:
         reader = csv.reader(rawfile, delimiter=',')
@@ -118,110 +121,7 @@ def calc_shipment(config1):
     conn.close()
 
 
-    #
-    # ##The version number is not clean, we just filter on platform
-    # ##1c17, DT
-    # cur.execute("""
-    # select SUM(s.QTY)
-    #         FROM shipment s
-    #         WHERE s.PRFT_CTR_LVL_5_NM not in ('China Local Sales','Germany Sales','Korea Local Sales')
-    #         AND s.OPERATING_SYSTEM LIKE ('%10%')
-    # 		AND upper(s.platform) in (	select distinct upper(i.platform)
-    # 		from install i, apps a
-    # 		where a.id = i.app_id
-    # 		and a.name='JumpStart'
-    # 		and type='new')
-    #        and s.cycle='1C 17'
-    #        and s.fisc_yr=2017
-    # 	   and s.fisc_mth = 5
-    #
-    # """)
-    # dt1c17 = cur.fetchone()[0]
-    # print('dt1c17:',dt1c17)
-    #
-    #
-    #
-    # #2c16, NB, DT
-    # cur.execute("""
-    # select SUM(s.QTY)
-    #         FROM shipment s
-    #         WHERE s.PRFT_CTR_LVL_5_NM not in ('China Local Sales','Germany Sales','Korea Local Sales')
-    #         AND s.OPERATING_SYSTEM LIKE ('%10%')
-    # 		AND upper(s.platform) in (	select distinct upper(i.platform)
-    # 		from install i, apps a
-    # 		where a.id = i.app_id
-    # 		and a.name='JumpStart'
-    # 		and type='refresh')
-    #        and s.cycle='2C 16'
-    #        and s.fisc_yr=2017
-    # 	   and s.fisc_mth = 5
-    #
-    # """)
-    # dt2c16 = cur.fetchone()[0]
-    # print('dt2c16:', dt2c16)
-    #
-    #
-    #
-    #
-    # #3c16, NB, DT
-    #
-    # cur.execute("""
-    # select SUM(s.QTY)
-    #         FROM shipment s
-    #         WHERE s.PRFT_CTR_LVL_5_NM not in ('China Local Sales','Germany Sales','Korea Local Sales')
-    #         AND s.OPERATING_SYSTEM LIKE ('%10%')
-    # 		AND upper(s.platform) in (	select distinct upper(i.platform)
-    # 		from install i, apps a
-    # 		where a.id = i.app_id
-    # 		and a.name='JumpStart'
-    # 		and type='refresh')
-    #        and s.cycle='3C 16'
-    #        and s.fisc_yr=2017
-    # 	   and s.fisc_mth = 5
-    #
-    # """)
-    # dt3c16 = cur.fetchone()[0]
-    # print('dt3c16:', dt3c16)
-    #
-    #
-    # #3c15, NB, DT
-    #
-    # cur.execute("""
-    #
-    #
-    # select SUM(s.QTY)
-    #         FROM shipment s
-    #         WHERE s.PRFT_CTR_LVL_5_NM not in ('China Local Sales','Germany Sales','Korea Local Sales')
-    #         AND s.OPERATING_SYSTEM LIKE ('%10%')
-    # 		AND upper(s.platform) in (	select distinct upper(i.platform)
-    # 		from install i, apps a
-    # 		where a.id = i.app_id
-    # 		and a.name='JumpStart'
-    # 		and type='refresh')
-    #        and s.cycle='3C 15'
-    #        and s.fisc_yr=2017
-    # 	   and s.fisc_mth = 5
-    #
-    # """)
-    # dt3c15 = cur.fetchone()[0]
-    # print('dt3c15:', dt3c15)
-    #
-    #
-    # #Consumer Win10 Jumpstart NPI (1C17) Unit in K, excl. CGK
-    #
-    # #Number1c17=`r Number1c17`
-    #
-    #
-    # #Consumer Win10 Jumpstart NPI (3C16) Unit in K, excl. CGK
-    #
-    # #Number3c16=`r Number3c16`
-    #
-    #
-    # #Softroll Win10 Jumpstart 3C15-2C16 Unit in K, excl. CGK
-    #
-    # #Numbers3c152c16=`r format(Numbers3c152c16, digits=10, big.mark=",")`
-    #
-    #
+ 
     print('calc_shipment ends')
 
     return

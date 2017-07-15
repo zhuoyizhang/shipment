@@ -82,8 +82,9 @@ git diff --word-diff=color --word-diff-regex=. 1c17-nb.csv 1c17-nb-test.csv
 * Load 3c16, 1c17, 2c17 together
 * Add OMEN
 * Test numbers in old files
-
+* How to deal 3c16&1c17 softroll?
 ~~* Fix getCycle()~~
+~~* 3c16 option code file has JumpStart apps~~
 
 ## Assumption
 
@@ -114,4 +115,14 @@ git diff --word-diff=color --word-diff-regex=. 1c17-nb.csv 1c17-nb-test.csv
 
 ```
 
+```
+Lollipop 1.0 (HP x2 Detachable 10) / Intel / eMMC, xxxx
+We removed the , from raw data.
 
+```
+
+```
+Clean the SWPOR by changing the label of 'Refresh' for 3c15 cycle
+It requires to modify the SWPOR before running the program
+
+```

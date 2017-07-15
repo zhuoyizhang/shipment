@@ -17,11 +17,12 @@ def gen_swpor(childConfig,configParent):
     config = util.getConfigChild(childConfig)
 
     inputfile = config['filename']
+    inputpath = r'./swpor/' + inputfile
     #path =os.path.basename(os.getcwd())
 
     #read xlsx and write to csv
 
-    wb = openpyxl.load_workbook(inputfile)
+    wb = openpyxl.load_workbook(inputpath)
     #sheetnames= wb.get_sheet_names()
     sheet = wb.get_sheet_by_name('SWPOR-Windows 10')
 
@@ -135,10 +136,10 @@ def gen_swpor(childConfig,configParent):
 
 
 
-
+    output = r'./swpor_output/'
 
     # write to file
-    with open(csvname, "w") as csv_file:
+    with open(output+csvname, "w") as csv_file:
         writer = csv.writer(csv_file, delimiter=',')
         writer.writerow(['App', 'Cycle', 'Platform'])
 
@@ -149,6 +150,7 @@ def gen_swpor(childConfig,configParent):
                     continue
                 if item[1] is not None:
                     platform = getPlatform(item[0])
+                    platform = platform.split(',')[0]
                 else: continue
                 #print(platform)
                 # platform = getPlatform()
@@ -177,7 +179,7 @@ def gen_swpor(childConfig,configParent):
         return dictOptionCode[col]
 
     # write to file
-    with open(csvname_loc, "w") as csv_file:
+    with open(output+csvname_loc, "w") as csv_file:
         writer = csv.writer(csv_file, delimiter=',')
         writer.writerow(['App', 'OptionCode'])
 

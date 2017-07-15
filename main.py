@@ -16,7 +16,6 @@ import util
 
 
 
-
 print('main starts')
 #user input cycle and type
 #cycle2load=input('Enter cycle to load [1c17...]')
@@ -54,7 +53,7 @@ print('main starts')
 
 create_tables.create_tables()
 
-cycle2load='1c17'
+cycle2load='3c16'
 
 #only pick the selected sections by cycle and their child sections.
 config = util.loadConfig('swpor.conf')
@@ -68,10 +67,16 @@ for child in children:
 
 
 
+output_path = r'./swpor_output/'
+print(output_path)
 #nb
-load_swpor.load_swpor(cycle2load+'_'+'nb_loc.csv','nb',cycle2load+'_'+'nb.csv')
+load_swpor.load_swpor(output_path + cycle2load+'_'+'nb_loc.csv'
+                      ,'nb'
+                      ,output_path + cycle2load+'_'+'nb.csv')
 #dt
-load_swpor.load_swpor(cycle2load+'_'+'dt_loc.csv','dt',cycle2load+'_'+'dt.csv')
+load_swpor.load_swpor(output_path + cycle2load+'_'+'dt_loc.csv'
+                      ,'dt'
+                      ,output_path + cycle2load+'_'+'dt.csv')
 
 calc_shipment.calc_shipment(config[cycle2load])
 
