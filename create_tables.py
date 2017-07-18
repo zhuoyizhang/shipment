@@ -41,21 +41,20 @@ def create_tables():
        app_id INTEGER,
        option_cd  TEXT,
        type    TEXT,
-       PRIMARY KEY (app_id, option_cd,type),
+       cycle   TEXT,
+       PRIMARY KEY (app_id, option_cd,type,cycle),
        FOREIGN KEY(app_id) REFERENCES Apps(id)
    );
 
    CREATE TABLE IF NOT EXISTS Install (
        app_id INTEGER,
-       option_cd TEXT,
        platform   TEXT,
        version   TEXT,
        platform_type   TEXT,
        cycle TEXT,
        FOREIGN KEY(app_id) REFERENCES Apps(id),
-       FOREIGN KEY(option_cd) REFERENCES OptionCodes(option_cd),
        FOREIGN KEY(platform, version) REFERENCES Platforms(platform, version),
-       PRIMARY KEY(app_id,platform,option_cd)
+       PRIMARY KEY(app_id,platform)
    );
 
    CREATE TABLE IF NOT EXISTS Shipment (

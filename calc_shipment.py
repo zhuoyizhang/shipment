@@ -10,28 +10,13 @@ def calc_shipment(config1):
 
 
     shipmentfile = r'./units/' + config1.get('shipment')
-
+    print(shipmentfile)
     ## read csv raw file
 
     conn = sqlite3.connect('shipment.sqlite')
     cur = conn.cursor()
 
-    #load shipment into shipment table
-    cur.executescript('''
-    
-    DROP TABLE IF EXISTS Shipment;
-    
-    CREATE TABLE IF NOT EXISTS Shipment (
-        FISC_YR INTEGER,
-        FISC_MTH INTEGER,
-        QTY   INTEGER,
-        PRFT_CTR_LVL_5_NM  TEXT,
-        OPERATING_SYSTEM TEXT,
-        PLATFORM TEXT,
-        CYCLE TEXT,
-        PROD_OPT_CD TEXT
-    )
-    ''')
+
 
     #ending with A or I
     exp = ['STOLI','MAYA','KOWALSKI','ZONDA','PASHA','SANGRIA',
@@ -45,10 +30,10 @@ def calc_shipment(config1):
         for row in reader:
             fisc_year = int(row[0].split('-')[0][2:])
             fisc_month= int(row[0].split('-')[1])
-            qty = row[32]
+            qty = row[33]
             country= row[10]
-            os= row[35]
-            platform = row[33].split(' ')[0]
+            os= row[36]
+            platform = row[34].split(' ')[0]
             if platform.upper() not in exp:
                     if platform.upper().endswith('A') or platform.upper().endswith('I'):
                         platform=platform[:-1]
@@ -56,8 +41,11 @@ def calc_shipment(config1):
             if platform.upper().startswith('SPHINX2'):
                 platform = platform[:-1]
                         #print(platform)
-            cycle=row[36]
-            option_cd=row[38]
+            cycle=row[37]
+            try:
+                option_cd=row[18].split("#")[1]
+            except:
+                option_cd=None
             #print(qty)
 
             cur.execute('''INSERT OR IGNORE INTO Shipment (FISC_YR, FISC_MTH, QTY,PRFT_CTR_LVL_5_NM,OPERATING_SYSTEM,PLATFORM,CYCLE,PROD_OPT_CD)
@@ -65,9 +53,16 @@ def calc_shipment(config1):
 
     conn.commit()
 
+    cur.execute('select max(s.fisc_yr),max(s.fisc_mth) FROM shipment s ')
+    result = cur.fetchone()
+
+
+    fisc_yr=result[0]
+    fisc_mth=result[1]
+
 
     ## Consumer shipment units in K
-    cur.execute('select SUM(s.QTY) FROM shipment s where s.fisc_yr=2017 and s.fisc_mth = 5')
+    cur.execute('select SUM(s.QTY) FROM shipment s where s.fisc_yr=? and s.fisc_mth = ?',(fisc_yr,fisc_mth))
     consumerShipmentUnits = cur.fetchone()[0]
     print('consumerShipmentUnits:',consumerShipmentUnits)
 
@@ -82,10 +77,9 @@ def calc_shipment(config1):
     shipment
     WHERE
     PRFT_CTR_LVL_5_NM not in ('China Local Sales', 'Germany Sales', 'Korea Local Sales')
-    and fisc_yr=2017
-    and fisc_mth = 5
-    
-    """)
+    and fisc_yr=?
+    and fisc_mth = ?
+    """, (fisc_yr,fisc_mth))
     consumerShipmentUnitsCKG = cur.fetchone()[0]
     print('consumerShipmentUnitsCKG:',consumerShipmentUnitsCKG)
 
@@ -96,9 +90,9 @@ def calc_shipment(config1):
     cur.execute("""select SUM(QTY)
             FROM shipment
             WHERE OPERATING_SYSTEM LIKE ('%10%')
-            and fisc_yr=2017
-           and fisc_mth = 5
-    """)
+            and fisc_yr=?
+            and fisc_mth = ?
+    """,(fisc_yr,fisc_mth))
     consumerWin10 = cur.fetchone()[0]
     print('consumerWin10:',consumerWin10)
 
@@ -109,9 +103,9 @@ def calc_shipment(config1):
             FROM shipment
             WHERE PRFT_CTR_LVL_5_NM not in ('China Local Sales','Germany Sales','Korea Local Sales')
             AND OPERATING_SYSTEM LIKE ('%10%')
-            and fisc_yr=2017
-           and fisc_mth = 5
-    """)
+            and fisc_yr=?
+           and fisc_mth = ?
+    """,(fisc_yr,fisc_mth))
     consumerWin10CGK = cur.fetchone()[0]
     print('consumerWin10CGK:',consumerWin10CGK)
 
@@ -121,7 +115,7 @@ def calc_shipment(config1):
     conn.close()
 
 
- 
+
     print('calc_shipment ends')
 
     return

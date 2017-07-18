@@ -82,12 +82,12 @@ def getCycle(coordinate, dictCycle, config):
     cycle = ''
     types=tolist(config['type'])
     mapping=tolist(config['mapping'])
-    print(types)
+    #print(types)
     #print(mapping)
     for i in range(len(types)):
-        print(dictCycle[col].upper() + '|' + types[i])
+        #print(dictCycle[col].upper() + '|' + types[i])
         if dictCycle[col].upper() == types[i].upper():
             cycle = mapping[i]
-            print(cycle)
+            #print(cycle)
             break
     return cycle

@@ -79,12 +79,16 @@ git diff --word-diff=color --word-diff-regex=. 1c17-nb.csv 1c17-nb-test.csv
 
 ## To Do
 
-* Load 3c16, 1c17, 2c17 together
-* Add OMEN
+~~* Load 3c16, 1c17, 2c17 together~~
+~~* Add OMEN~~
+~~* High: defect - OMEN has 1c17 number*~~
 * Test numbers in old files
 * How to deal 3c16&1c17 softroll?
 ~~* Fix getCycle()~~
 ~~* 3c16 option code file has JumpStart apps~~
+* Display result in Juypter Notebook style
+~~* refactor fisc_yr and fisc_mth~~
+* refactor shipment.py by using column name when loading units
 
 ## Assumption
 
@@ -124,5 +128,14 @@ We removed the , from raw data.
 ```
 Clean the SWPOR by changing the label of 'Refresh' for 3c15 cycle
 It requires to modify the SWPOR before running the program
+
+```
+
+```
+Option code ramp up issue
+3c16   option code:  a,b,c
+1c17   option code:  a,b,c,d
+when I calculate 3c16, use a,b,c
+when I calculate 1c17,  use a,b,c,d
 
 ```

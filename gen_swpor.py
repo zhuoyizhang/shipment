@@ -146,6 +146,7 @@ def gen_swpor(childConfig,configParent):
         for app in dictApp.items():
             appname= app[0]
             for item in getRow(startCol,endCol,getAppRow(appname)).items():
+
                 if getCol(item[0]) in exclude:
                     continue
                 if item[1] is not None:

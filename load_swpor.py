@@ -10,9 +10,9 @@ import re
 
 
 
-def load_swpor(loc_file_name,type2load,file_name):
+def load_swpor(loc_file_name,type2load,file_name,currentcycle):
     print('load_swpor starts')
-    print(loc_file_name,type2load,file_name)
+    #print(loc_file_name,type2load,file_name)
 
     #input file xxxx_xx.csv and xxxx_xx.loc.csv
 
@@ -48,8 +48,8 @@ def load_swpor(loc_file_name,type2load,file_name):
             #dict.items() return tuple, tuple does not have key, use[i]
             #item(col_index, app_id)
 
-            cur.execute('''INSERT OR IGNORE INTO OptionCodes (app_id, option_cd, type)
-                     VALUES ( ? ,?,?)''', ( appid, option_code, type) )
+            cur.execute('''INSERT OR IGNORE INTO OptionCodes (app_id, option_cd, type, cycle)
+                     VALUES ( ? ,?,?,?)''', ( appid, option_code, type,currentcycle) )
 
 
     #load 1c17_nb_csv
@@ -76,13 +76,11 @@ def load_swpor(loc_file_name,type2load,file_name):
             cur.execute('''INSERT OR IGNORE INTO Platforms (platform, version, category)
                     VALUES ( ?, ?, ?)''', ( platform, version, category) )
             #insert into install table
-            #loop by app and loc code
 
-            result = cur.execute('select app_id, option_cd from OptionCodes where type=?',(type2load,))
-            data = result.fetchall()
-            for item in data:
-                cur.execute('''INSERT OR IGNORE INTO Install (app_id, option_cd, platform, version, platform_type,cycle)
-                                VALUES ( ?, ?,?,?,?,?)''', (item[0], item[1],platform, version, type2load,cycle))
+            result = cur.execute('select id from Apps where name=?',(row[0],))
+            data = result.fetchone()
+            cur.execute('''INSERT OR IGNORE INTO Install (app_id, platform, version, platform_type,cycle)
+                                VALUES ( ?, ?,?,?,?)''', (data[0],platform, version, type2load,cycle))
 
     cur.close()
 
